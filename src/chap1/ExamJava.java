@@ -1,6 +1,14 @@
+package chap1;
+
 class Calc {
-    int[] sumfunc(int[] score) {
-        int[] tmp = {0, 0};
+    int[] score;
+
+    public Calc(int[] score) {
+        this.score = score;
+    }
+
+    int[] sumFunc() {
+        int[] tmp = new int[2];
         for(int i : score) {
             tmp[0] += i;
         }
@@ -9,15 +17,15 @@ class Calc {
     }
 }
 
-
-
 public class ExamJava {
     public static void main(String[] args) {
         int[] score = {70, 80, 60, 100};
 
-        int[] res = new Calc().sumfunc(score);
+        int[] res = new Calc(score).sumFunc();
         //System.out.println("총점은 " + res[0] + "이고 " + "평균은 " + res[1] + "입니다.");
         System.out.printf("총점은 %d이고 평균은 %d 입니다. \n", res[0], res[1]);
         System.out.printf("총점은 %d이고 평균은 %d 입니다.", res[0], res[1]);
     }
 }
+
+
