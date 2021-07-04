@@ -4,6 +4,7 @@ class Calc {
     int[] score;
 
     public Calc(int[] score) {
+
         this.score = score;
     }
 

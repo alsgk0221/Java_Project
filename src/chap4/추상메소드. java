@@ -1,0 +1,110 @@
+/*
+abstract class Shape {
+    String name;
+
+    public Shape() {
+        this.name = "모양";
+    }
+
+    public abstract double area();
+    public abstract double perimeter();
+}
+*/
+
+interface Shape {
+    String name = "모양";
+
+    public abstract double area();
+    public abstract double perimeter();
+}
+
+
+class Rectangle implements Shape{
+    int w, h;
+    String name;
+    public Rectangle(int w, int h) {
+        super();
+        this.w = w;
+        this.h = h;
+        this.name = "사각형";
+    }
+
+    @Override
+    public double area() {
+        System.out.println("넓이 : " + this.name);
+        return this.w * this.h;
+    }
+
+    @Override
+    public double perimeter() {
+        System.out.println("둘레 : " + this.name);
+        return 2*(this.w + this.h);
+    }
+}
+
+class Circle implements Shape {
+    double r;
+    String name;
+
+    public Circle(double r) {
+        super();
+        this.r = r;
+        this.name = "원";
+    }
+
+    @Override
+    public double area() {
+        System.out.println("넓이 : " + this.name);
+        return Math.PI*this.r*this.r;
+    }
+
+    @Override
+    public double perimeter() {
+        System.out.println("둘레 : " + this.name);
+        return 2*Math.PI*this.r;
+    }
+
+}
+
+class Triangle implements Shape {
+    int x1, y1, x2, x3, y2, y3;
+    String name;
+
+    public Triangle(int x1, int y1, int x2, int y2, int x3, int y3) {
+        super();
+        this.x1 = x1;
+        this.x2 = x2;
+        this.x3 = x3;
+        this.y1 = y1;
+        this.y2 = y2;
+        this.y3 = y3;
+        this.name = "삼각형";
+    }
+
+    @Override
+    public double area() {
+        System.out.println("넓이 : " + this.name);
+        return 0.5 * Math.abs((this.x1*this.y2+this.x2*this.y3+this.x3*this.y1)-(this.x1*this.y3+this.x3*this.y2+this.x2*this.y1));
+    }
+
+    @Override
+    public double perimeter() {
+        System.out.println("둘레 : " + this.name);
+        return Math.sqrt((this.x1-this.x2)*(this.x1-this.x2)+(this.y1-this.y2)*(this.y1-this.y2))+Math.sqrt((this.x2-this.x3)*(this.x2-this.x3)+(this.y2-this.y3)*(this.y2-this.y3))+Math.sqrt((this.x3-this.x1)*(this.x3-this.x1)+(this.y3-this.y1)*(this.y3-this.y1));
+    }
+}
+
+public class Sam {
+    public static void main(String[] args) {
+        Rectangle s1 = new Rectangle(10, 20);
+        System.out.println(s1.area());
+        System.out.println(s1.perimeter());
+        Circle s2 = new Circle(10);
+        System.out.println(s2.area());
+        System.out.println(s2.perimeter());
+        Triangle s3 = new Triangle(10,10,20,20,20,10);
+        System.out.println(s3.area());
+        System.out.println(s3.perimeter());
+    }
+}
+
